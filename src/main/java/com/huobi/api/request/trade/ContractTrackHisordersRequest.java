@@ -1,16 +1,20 @@
 package com.huobi.api.request.trade;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @AllArgsConstructor
-@Data
 @Builder
-public class ContractTriggerOpenordersRequest {
+@Data
+public class ContractTrackHisordersRequest {
     private String symbol;
     private String contractCode;
+    private Integer tradeType;
+    private String status;
+    private Long createDate;
     private Integer pageIndex;
     private Integer pageSize;
-    private Integer trade_type;
+    private String sortBy;
 }

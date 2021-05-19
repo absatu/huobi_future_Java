@@ -17,7 +17,7 @@ public class MarketAPITest implements BaseTest {
 
     @Test
     public void getContractContractInfo() {
-        ContractContractCodeResponse result =
+        ContractContractInfoResponse result =
                 huobiAPIService.getContractContractInfo("", "", "");
         logger.debug("1.获取合约信息：{}", JSON.toJSONString(result));
     }
@@ -172,6 +172,36 @@ public class MarketAPITest implements BaseTest {
                 .build();
         ContractSettlementRecordsResponse response = huobiAPIService.getContractSettlementRecords(request);
         logger.debug("21.查询平台历史结算记录：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getContractEstimatedSettlementPriceResponse(){
+        ContractEstimatedSettlementPriceResponse response=huobiAPIService.getContractEstimatedSettlementPriceResponse("btc");
+        logger.debug("22.获取预估结算价: {}",JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getMarketBatchMerged(){
+        MarketBatchMergedResponse response=huobiAPIService.getMarketBatchMerged("");
+        logger.debug("23.批量获取聚合行情: {}",JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getContractLadderMargin(){
+        ContractLadderMarginResponse response=huobiAPIService.getContractLadderMargin("btc");
+        logger.debug("24.获取平台阶梯保证金: {}",JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getMarkPriceKline(){
+        MarkPriceKlineResponse response=huobiAPIService.getMarkPriceKline("btc_cq","5min",10);
+        logger.debug("25.获取标记价格的K线数据: {}",JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getMarketBbo(){
+        MarketBboResponse response=huobiAPIService.getMarketBbo("");
+        logger.debug("26.获取市场最优挂单: {}",JSON.toJSONString(response));
     }
 
 }

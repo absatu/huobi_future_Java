@@ -83,6 +83,10 @@ public class ContractOrderDetailResponse {
         private Integer totalSize;
         @SerializedName("current_page")
         private Integer currentPage;
+        @SerializedName("is_tpsl")
+        private Integer isTpsl;
+        @SerializedName("real_profit")
+        private BigDecimal realProfit;
         private List<TradesBean> trades;
 
         @Data
@@ -112,7 +116,9 @@ public class ContractOrderDetailResponse {
             private String role;
             @SerializedName("created_at")
             private Long createdAt;
-
+            @SerializedName("real_profit")
+            private BigDecimal realProfit;
+            private BigDecimal profit;
         }
     }
 }

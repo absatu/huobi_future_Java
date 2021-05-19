@@ -70,6 +70,10 @@ public class ContractHisordersExactResponse {
             private String feeAsset;
             @SerializedName("liquidation_type")
             private String liquidationType;
+            @SerializedName("is_tpsl")
+            private Integer isTpsl;
+            @SerializedName("real_profit")
+            private BigDecimal realProfit;
         }
     }
 }

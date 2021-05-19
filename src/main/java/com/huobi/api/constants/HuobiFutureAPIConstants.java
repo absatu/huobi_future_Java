@@ -28,6 +28,12 @@ public class HuobiFutureAPIConstants {
     public static final String MARKET_HISTORY_BASIS = "/index/market/history/basis"; // 20.获取基差数据
 
     public static final String CONTRACT_SETTLEMENT_RECORDS = "/api/v1/contract_settlement_records"; // 21.查询平台历史结算记录
+    public static final String CONTRACT_ESTIMATED_SETTLEMENT_PRICE = "/api/v1/contract_estimated_settlement_price"; // 22.获取预估结算价
+    public static final String BATCH_MERGED = "/market/detail/batch_merged"; // 23.批量获取聚合行情
+    public static final String CONTRACT_LADDER_MARGIN = "/api/v1/contract_ladder_margin"; // 24.获取平台阶梯保证金
+    public static final String MARK_PRICE_KLINE = "/index/market/history/mark_price_kline"; // 25.获取标记价格的K线数据
+
+    public static final String MARKET_BBO = "/market/bbo"; // 26.获取市场最优挂单
 
     //合约资产接口
     public static final String CONTRACT_ACCOUNT_INFO = "/api/v1/contract_account_info"; // 1.获取用户账户信息
@@ -50,7 +56,9 @@ public class HuobiFutureAPIConstants {
 
     public static final String CONTRACT_API_TRADING_STATUS="/api/v1/contract_api_trading_status"; //16、获取用户的API指标禁用信息
     public static final String CONTRACT_AVAILABLE_LEVEL_RATE="/api/v1/contract_available_level_rate"; //17、查询用户可用杠杆倍数
-
+    public static final String CONTRACT_SUB_AUTH="/api/v1/contract_sub_auth"; //18、批量设置子账户交易权限
+    public static final String CONTRACT_SUB_ACCOUNT_INFO_LIST="/api/v1/contract_sub_account_info_list"; //19、批量获取子账户资产信息
+    public static final String CONTRACT_BALANCE_VALUATION = "/api/v1/contract_balance_valuation"; // 20.获取账户总资产估值
 
     //合约交易接口
     public static final String CONTRACT_ORDER = "/api/v1/contract_order"; // 1.合约下单
@@ -74,6 +82,19 @@ public class HuobiFutureAPIConstants {
     public static final String CONTRACT_SWITCH_LEVER_RATE="/api/v1/contract_switch_lever_rate"; //16.切换杠杆
     public static final String CONTRACT_HISORDERS_EXACT="/api/v1/contract_hisorders_exact"; //17.组合查询合约历史委托
     public static final String CONTRACT_MATCHRESULTS_EXACT="/api/v1/contract_matchresults_exact"; //18.组合查询历史成交记录接口
+    public static final String CONTRACT_TPSL_ORDER="/api/v1/contract_tpsl_order"; //19.对仓位设置止盈止损订单
+    public static final String CONTRACT_TPSL_CANCEL="/api/v1/contract_tpsl_cancel"; //20.止盈止损订单撤单
+
+    public static final String CONTRACT_TPSL_CANCELALL="/api/v1/contract_tpsl_cancelall"; //21.止盈止损订单全部撤单
+    public static final String CONTRACT_TPSL_OPENORDERS="/api/v1/contract_tpsl_openorders"; //22.查询止盈止损订单当前委托
+    public static final String CONTRACT_TPSL_HISORDERS="/api/v1/contract_tpsl_hisorders"; //23.查询止盈止损订单历史委托
+    public static final String CONTRACT_RELATION_TPSL_ORDER="/api/v1/contract_relation_tpsl_order"; //24.查询开仓单关联的止盈止损订单详情
+    public static final String CONTRACT_TRACK_ORDER = "/api/v1/contract_track_order"; // 跟踪委托订单下单
+
+    public static final String CONTRACT_TRACK_CANCEL= "/api/v1/contract_track_cancel"; // 跟踪委托订单撤单
+    public static final String CONTRACT_TRACK_CANCELALL = "/api/v1/contract_track_cancelall"; // 跟踪委托订单全部撤单
+    public static final String CONTRACT_TRACK_OPENORDERS = "/api/v1/contract_track_openorders"; // 跟踪委托订单当前委托
+    public static final String CONTRACT_TRACK_HISORDERS = "/api/v1/contract_track_hisorders"; // 跟踪委托订单历史委托
 
     //合约划转接口
     public static final String FUTURES_TRANSFER = "/v1/futures/transfer"; // 1.现货-合约账户间进行资金的划转

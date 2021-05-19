@@ -26,7 +26,7 @@ public class MarketAPIServiceImpl implements MarketAPIService {
      * @return 如果不填，默认查询所有所有合约信息; 如果contract_code填了值，那就按照contract_code去查询; 如果contract_code没有填值，则按照symbol+contract_type去查询;
      */
     @Override
-    public ContractContractCodeResponse getContractContractInfo(String symbol, String contractType, String contractCode) {
+    public ContractContractInfoResponse getContractContractInfo(String symbol, String contractType, String contractCode) {
         String body;
         try {
             Map<String, Object> params = new HashMap<>();
@@ -40,7 +40,7 @@ public class MarketAPIServiceImpl implements MarketAPIService {
                 params.put("contract_code", contractCode);
             }
             body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.CONTRACT_CONTRACT_INFO, params);
-            ContractContractCodeResponse response = JSON.parseObject(body, ContractContractCodeResponse.class);
+            ContractContractInfoResponse response = JSON.parseObject(body, ContractContractInfoResponse.class);
             if ("ok".equalsIgnoreCase(response.getStatus())) {
                 return response;
             }
@@ -525,4 +525,110 @@ public class MarketAPIServiceImpl implements MarketAPIService {
         }
         throw new ApiException(body);
     }
+
+    @Override
+    public ContractEstimatedSettlementPriceResponse getContractEstimatedSettlementPriceResponse(String symbol) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            if (StringUtils.isNotEmpty(symbol)){
+                params.put("symbol",symbol);
+            }
+            body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.CONTRACT_ESTIMATED_SETTLEMENT_PRICE, params);
+            logger.debug("body:{}",body);
+            ContractEstimatedSettlementPriceResponse response = JSON.parseObject(body, ContractEstimatedSettlementPriceResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+
+        } catch (Exception e) {
+            body = e.getMessage();
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public MarketBatchMergedResponse getMarketBatchMerged(String symbol) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            if (StringUtils.isNotEmpty(symbol)){
+                params.put("symbol",symbol);
+            }
+            body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.BATCH_MERGED, params);
+            logger.debug("body:{}",body);
+            MarketBatchMergedResponse response = JSON.parseObject(body, MarketBatchMergedResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+
+        } catch (Exception e) {
+            body = e.getMessage();
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public ContractLadderMarginResponse getContractLadderMargin(String symbol) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            if (StringUtils.isNotEmpty(symbol)){
+                params.put("symbol",symbol);
+            }
+            body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.CONTRACT_LADDER_MARGIN, params);
+            logger.debug("body:{}",body);
+            ContractLadderMarginResponse response = JSON.parseObject(body, ContractLadderMarginResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+
+        } catch (Exception e) {
+            body = e.getMessage();
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public MarkPriceKlineResponse getMarkPriceKline(String symbol, String period, Integer size) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            params.put("symbol",symbol.toUpperCase());
+            params.put("period",period);
+            params.put("size",size);
+            body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.MARK_PRICE_KLINE, params);
+            logger.debug("body:{}",body);
+            MarkPriceKlineResponse response = JSON.parseObject(body, MarkPriceKlineResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+
+        } catch (Exception e) {
+            body = e.getMessage();
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public MarketBboResponse getMarketBbo(String symbol) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            if (StringUtils.isNotEmpty(symbol)) {
+                params.put("symbol", symbol.toUpperCase());
+            }
+            body = HbdmHttpClient.getInstance().doGet(url_prex + HuobiFutureAPIConstants.MARKET_BBO, params);
+            logger.debug("body:{}",body);
+            MarketBboResponse response = JSON.parseObject(body, MarketBboResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+
+        } catch (Exception e) {
+            body = e.getMessage();
+        }
+        throw new ApiException(body);
+    }
+
 }

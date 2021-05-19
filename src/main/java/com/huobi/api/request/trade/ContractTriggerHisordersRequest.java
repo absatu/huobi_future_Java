@@ -15,4 +15,5 @@ public class ContractTriggerHisordersRequest {
     private Integer createDate;
     private Integer pageIndex;
     private Integer pageSize;
+    private String sortBy;
 }

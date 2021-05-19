@@ -1,16 +1,13 @@
 package com.huobi.api.request.trade;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-@AllArgsConstructor
-@Data
 @Builder
-public class ContractTriggerCancelallRequest {
+@Data
+public class ContractTpslCancelallRequest {
     private String symbol;
     private String contractCode;
     private String contractType;
     private String direction;
-    private String offset;
 }
